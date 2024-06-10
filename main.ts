@@ -83,6 +83,16 @@ schritt = [
 0,
 0,
 0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
 0
 ]
 bewegung_auswahl = 0
@@ -116,5 +126,5 @@ images.createImage(`
     . . # . .
     `)
 ]
-music.play(music.stringPlayable("F G B C5 - B C5 - ", 441), music.PlaybackMode.InBackground)
+music.play(music.stringPlayable("F G B C5 - B C5 - ", 441), music.PlaybackMode.UntilDone)
 bewegung[bewegung_auswahl].showImage(0)
