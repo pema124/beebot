@@ -3,7 +3,8 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "v3": "*"
+        "v3": "*",
+        "callibot2e": "github:knotechgmbh/Callibot2e#v0.0.1"
     },
     "files": [
         "main.blocks",
