@@ -24,33 +24,43 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
         } else if (schritt[schritt_nr_ausfuehrung] == 1) {
             calliBot2E.motor(C2eMotor.links, C2eDir.rückwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.vorwärts, 100)
-            basic.pause(450)
+            basic.pause(380)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 2) {
             calliBot2E.motor(C2eMotor.links, C2eDir.vorwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.rückwärts, 100)
-            basic.pause(450)
+            basic.pause(380)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 3) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 80)
             basic.pause(600)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else {
-            basic.showIcon(IconNames.Confused)
+            calliBot2E.rgbLed(C2eRgbLed.All, 16, 0, 0)
+            basic.showIcon(IconNames.No)
+            while (true) {
+            	
+            }
         }
-        calliBot2E.led(C2eMotor.beide, C2eState.an)
-        music.playTone(988, music.beat(BeatFraction.Whole))
-        basic.pause(1000)
-        calliBot2E.led(C2eMotor.beide, C2eState.aus)
+        calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 16)
+        music.playTone(988, music.beat(BeatFraction.Double))
+        calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 16)
     }
-    calliBot2E.led(C2eMotor.beide, C2eState.an)
-    music.playTone(988, music.beat(BeatFraction.Eighth))
-    calliBot2E.led(C2eMotor.beide, C2eState.aus)
+    calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 0)
+    music.playTone(988, music.beat(BeatFraction.Half))
+    calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
     basic.pause(250)
     calliBot2E.led(C2eMotor.beide, C2eState.an)
-    music.playTone(988, music.beat(BeatFraction.Eighth))
-    calliBot2E.led(C2eMotor.beide, C2eState.aus)
-    basic.showIcon(IconNames.SmallSquare)
+    calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 0)
+    music.playTone(988, music.beat(BeatFraction.Half))
+    calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # # # # #
+        # # # # #
+        . # . # .
+        `)
 })
 input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     music.playTone(698, music.beat(BeatFraction.Eighth))
