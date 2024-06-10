@@ -17,8 +17,6 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     music.playTone(988, music.beat(BeatFraction.Quarter))
     for (let schritt_nr_ausfuehrung = 0; schritt_nr_ausfuehrung <= schritt_nr_plan - 1; schritt_nr_ausfuehrung++) {
         basic.showNumber(schritt_nr_ausfuehrung)
-        basic.pause(500)
-        basic.showNumber(schritt[schritt_nr_ausfuehrung])
         if (schritt[schritt_nr_ausfuehrung] == 0) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 100)
             basic.pause(600)
@@ -26,22 +24,23 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
         } else if (schritt[schritt_nr_ausfuehrung] == 1) {
             calliBot2E.motor(C2eMotor.links, C2eDir.rückwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.vorwärts, 100)
-            basic.pause(400)
+            basic.pause(450)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 2) {
             calliBot2E.motor(C2eMotor.links, C2eDir.vorwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.rückwärts, 100)
-            basic.pause(600)
+            basic.pause(450)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 3) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 100)
-            basic.pause(500)
+            basic.pause(600)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else {
             basic.showIcon(IconNames.Confused)
         }
         calliBot2E.led(C2eMotor.beide, C2eState.an)
-        music.playTone(988, music.beat(BeatFraction.Eighth))
+        music.playTone(988, music.beat(BeatFraction.Whole))
+        basic.pause(1000)
         calliBot2E.led(C2eMotor.beide, C2eState.aus)
     }
     calliBot2E.led(C2eMotor.beide, C2eState.an)
