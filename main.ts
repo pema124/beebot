@@ -60,6 +60,7 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 0)
     music.playTone(988, music.beat(BeatFraction.Double))
     calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
+    bewegung[bewegung_auswahl].showImage(0)
 })
 input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     music.playTone(698, music.beat(BeatFraction.Eighth))
