@@ -44,7 +44,7 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
         }
         calliBot2E.rgbLed(C2eRgbLed.All, 16, 16, 0)
         music.playTone(988, music.beat(BeatFraction.Double))
-        calliBot2E.rgbLed(C2eRgbLed.All, 16, 16, 0)
+        calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
     }
     basic.showLeds(`
         . . # . .
