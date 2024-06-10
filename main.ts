@@ -1,6 +1,6 @@
 input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
-    if (schritt_nr < schritte.length - 1) {
-        schritte[schritt_nr] = bewegung_auswahl
+    if (schritt_nr < schritt.length - 1) {
+        schritt[schritt_nr] = bewegung_auswahl
         music.playTone(349, music.beat(BeatFraction.Eighth))
         schritt_nr += 1
         bewegung_auswahl = 0
@@ -26,12 +26,11 @@ input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     bewegung[bewegung_auswahl].showImage(0)
 })
 let bewegung: Image[] = []
-let schritte: number[] = []
-let schritt_nr = 0
 let bewegung_auswahl = 0
-bewegung_auswahl = 0
+let schritt: number[] = []
+let schritt_nr = 0
 schritt_nr = 0
-schritte = [
+schritt = [
 0,
 0,
 0,
@@ -43,6 +42,7 @@ schritte = [
 0,
 0
 ]
+bewegung_auswahl = 0
 bewegung = [
 images.createImage(`
     . . # . .
