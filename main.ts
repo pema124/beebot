@@ -21,17 +21,17 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
         basic.showNumber(schritt[schritt_nr_ausfuehrung])
         if (schritt[schritt_nr_ausfuehrung] == 0) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 100)
-            basic.pause(500)
+            basic.pause(600)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 1) {
             calliBot2E.motor(C2eMotor.links, C2eDir.rückwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.vorwärts, 100)
-            basic.pause(300)
+            basic.pause(400)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 2) {
             calliBot2E.motor(C2eMotor.links, C2eDir.vorwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.rückwärts, 100)
-            basic.pause(300)
+            basic.pause(600)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 3) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 100)
