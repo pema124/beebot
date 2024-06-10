@@ -24,12 +24,12 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
         } else if (schritt[schritt_nr_ausfuehrung] == 1) {
             calliBot2E.motor(C2eMotor.links, C2eDir.rückwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.vorwärts, 100)
-            basic.pause(380)
+            basic.pause(390)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 2) {
             calliBot2E.motor(C2eMotor.links, C2eDir.vorwärts, 100)
             calliBot2E.motor(C2eMotor.rechts, C2eDir.rückwärts, 100)
-            basic.pause(380)
+            basic.pause(390)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 3) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 80)
@@ -42,18 +42,10 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
             	
             }
         }
-        calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 16)
+        calliBot2E.rgbLed(C2eRgbLed.All, 16, 16, 0)
         music.playTone(988, music.beat(BeatFraction.Double))
-        calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 16)
+        calliBot2E.rgbLed(C2eRgbLed.All, 16, 16, 0)
     }
-    calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 0)
-    music.playTone(988, music.beat(BeatFraction.Half))
-    calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
-    basic.pause(250)
-    calliBot2E.led(C2eMotor.beide, C2eState.an)
-    calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 0)
-    music.playTone(988, music.beat(BeatFraction.Half))
-    calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
     basic.showLeds(`
         . . # . .
         . # # # .
@@ -61,6 +53,12 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
         # # # # #
         . # . # .
         `)
+    calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 0)
+    music.playTone(988, music.beat(BeatFraction.Whole))
+    calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
+    basic.pause(250)
+    calliBot2E.rgbLed(C2eRgbLed.All, 0, 16, 0)
+    music.playTone(988, music.beat(BeatFraction.Whole))
 })
 input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     music.playTone(698, music.beat(BeatFraction.Eighth))
