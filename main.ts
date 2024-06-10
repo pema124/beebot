@@ -117,5 +117,5 @@ images.createImage(`
     . . # . .
     `)
 ]
+music.play(music.stringPlayable("F G B C5 - B C5 - ", 441), music.PlaybackMode.InBackground)
 bewegung[bewegung_auswahl].showImage(0)
-music.play(music.stringPlayable("F G B C5 - B C5 - ", 350), music.PlaybackMode.InBackground)
