@@ -12,6 +12,7 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
     }
 })
 input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
+    fahrt_aktiv = 1
     music.playTone(988, music.beat(BeatFraction.Quarter))
     music.rest(music.beat(BeatFraction.Quarter))
     music.playTone(988, music.beat(BeatFraction.Quarter))
@@ -144,7 +145,7 @@ bewegung[bewegung_auswahl].showImage(0)
 loops.everyInterval(100, function () {
     if (fahrt_aktiv == 1) {
         entfernung = calliBot2E.distance(C2eEinheit.cm)
-        if (calliBot2E.distance(C2eEinheit.cm) < 5) {
+        if (entfernung < 5) {
             basic.showLeds(`
                 . . # . .
                 . . . . .
