@@ -16,7 +16,6 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     music.rest(music.beat(BeatFraction.Quarter))
     music.playTone(988, music.beat(BeatFraction.Quarter))
     for (let schritt_nr_ausfuehrung = 0; schritt_nr_ausfuehrung <= schritt_nr_plan - 1; schritt_nr_ausfuehrung++) {
-        basic.showNumber(schritt_nr_ausfuehrung)
         if (schritt[schritt_nr_ausfuehrung] == 0) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 80)
             basic.pause(600)
@@ -61,6 +60,7 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     music.playTone(988, music.beat(BeatFraction.Double))
     calliBot2E.rgbLed(C2eRgbLed.All, 0, 0, 0)
     bewegung[bewegung_auswahl].showImage(0)
+    fahrt_aktiv = 0
 })
 input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     music.playTone(698, music.beat(BeatFraction.Eighth))
@@ -71,10 +71,12 @@ input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     }
     bewegung[bewegung_auswahl].showImage(0)
 })
+let entfernung = 0
 let bewegung: Image[] = []
 let bewegung_auswahl = 0
 let schritt: number[] = []
 let schritt_nr_plan = 0
+let fahrt_aktiv = 0
 basic.showLeds(`
     . # # # .
     # . . . #
@@ -82,6 +84,7 @@ basic.showLeds(`
     . # . # .
     . . . . .
     `)
+fahrt_aktiv = 0
 schritt_nr_plan = 0
 schritt = [
 0,
@@ -138,3 +141,49 @@ images.createImage(`
 ]
 music.play(music.stringPlayable("F G B C5 - B C5 - ", 441), music.PlaybackMode.UntilDone)
 bewegung[bewegung_auswahl].showImage(0)
+loops.everyInterval(100, function () {
+    if (fahrt_aktiv == 1) {
+        entfernung = calliBot2E.distance(C2eEinheit.cm)
+        if (calliBot2E.distance(C2eEinheit.cm) < 5) {
+            basic.showLeds(`
+                . . # . .
+                . . . . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+        } else if (calliBot2E.distance(C2eEinheit.cm) < 20) {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . . . .
+                . . . . .
+                . . . . .
+                `)
+        } else if (calliBot2E.distance(C2eEinheit.cm) < 35) {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . . . .
+                . . . . .
+                `)
+        } else if (calliBot2E.distance(C2eEinheit.cm) < 50) {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . # . .
+                . . . . .
+                `)
+        } else {
+            basic.showLeds(`
+                . . # . .
+                . . # . .
+                . . # . .
+                . . # . .
+                . . # . .
+                `)
+        }
+    }
+})
