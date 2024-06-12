@@ -19,7 +19,7 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
     for (let schritt_nr_ausfuehrung = 0; schritt_nr_ausfuehrung <= schritt_nr_plan - 1; schritt_nr_ausfuehrung++) {
         if (schritt[schritt_nr_ausfuehrung] == 0) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.vorwärts, 60)
-            basic.pause(1000)
+            basic.pause(1100)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 1) {
             calliBot2E.motor(C2eMotor.links, C2eDir.rückwärts, 80)
@@ -33,7 +33,7 @@ input.onButtonEvent(Button.AB, input.buttonEventClick(), function () {
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else if (schritt[schritt_nr_ausfuehrung] == 3) {
             calliBot2E.motor(C2eMotor.beide, C2eDir.rückwärts, 60)
-            basic.pause(1000)
+            basic.pause(1100)
             calliBot2E.motorStop(C2eMotor.beide, C2eStop.Bremsen)
         } else {
             calliBot2E.rgbLed(C2eRgbLed.All, 16, 0, 0)
